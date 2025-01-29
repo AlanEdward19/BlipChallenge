@@ -114,6 +114,8 @@ GET /GitHubRepository/GetOldestRepositoriesByProgrammingLanguage?UserName=takene
 │   │   ├── BlipChallenge.csproj
 │   │   └── Program.cs
 │   ├── test/
+│   │   │   ├── Integration/
+│   │   │   │   └── GitHubRepositoryIntegrationTests.cs
 │── Flow/
 │   └── chatbot.json
 ```
