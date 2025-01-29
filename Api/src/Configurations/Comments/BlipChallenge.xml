@@ -115,6 +115,33 @@
             <param name="app"></param>
             <returns></returns>
         </member>
+        <member name="T:BlipChallenge.Configurations.ConfigureValidator">
+            <summary>
+               Configura os validadores da aplicação
+            </summary>
+        </member>
+        <member name="M:BlipChallenge.Configurations.ConfigureValidator.ConfigureValidators(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                Configura os validadores da aplicação
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BlipChallenge.Features.GitHubRepository.GetRepositories.Enums.ERepositoryType">
+            <summary>
+            Enum que representa o tipo de repositório que deseja buscar
+            </summary>
+        </member>
+        <member name="F:BlipChallenge.Features.GitHubRepository.GetRepositories.Enums.ERepositoryType.User">
+            <summary>
+            Repositório de usuário
+            </summary>
+        </member>
+        <member name="F:BlipChallenge.Features.GitHubRepository.GetRepositories.Enums.ERepositoryType.Organization">
+            <summary>
+            Repositório de organização
+            </summary>
+        </member>
         <member name="T:BlipChallenge.Features.GitHubRepository.GetRepositories.GetRepositoryQuery">
             <summary>
             Classe que representa a query para buscar repositórios no GitHub
@@ -138,6 +165,42 @@
         <member name="P:BlipChallenge.Features.GitHubRepository.GetRepositories.GetRepositoryQuery.Type">
             <summary>
             Tipo de repositório que deseja buscar, 0 = Usuário, 1 = Organização
+            </summary>
+        </member>
+        <member name="T:BlipChallenge.Features.GitHubRepository.GetRepositories.GetRepositoryQueryHandler">
+            <summary>
+            Handler para query de busca de repositórios
+            </summary>
+            <param name="gitHubApi"></param>
+        </member>
+        <member name="M:BlipChallenge.Features.GitHubRepository.GetRepositories.GetRepositoryQueryHandler.#ctor(BlipChallenge.Common.Services.GithubApi.IGitHubApi)">
+            <summary>
+            Handler para query de busca de repositórios
+            </summary>
+            <param name="gitHubApi"></param>
+        </member>
+        <member name="M:BlipChallenge.Features.GitHubRepository.GetRepositories.GetRepositoryQueryHandler.HandleAsync(BlipChallenge.Features.GitHubRepository.GetRepositories.GetRepositoryQuery,System.Threading.CancellationToken)">
+            <summary>
+            Método que executa a query de busca de repositórios
+            </summary>
+            <param name="query"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="T:BlipChallenge.Features.GitHubRepository.GetRepositories.GetRepositoryQueryValidator">
+            <summary>
+            Validador para a query de busca de repositórios
+            </summary>
+        </member>
+        <member name="M:BlipChallenge.Features.GitHubRepository.GetRepositories.GetRepositoryQueryValidator.#ctor">
+            <summary>
+            Validações para a query de busca de repositórios
+            </summary>
+        </member>
+        <member name="T:BlipChallenge.Features.GitHubRepository.GetRepositories.RepositoryViewModel">
+            <summary>
+            ViewModel para repositório
             </summary>
         </member>
         <member name="P:BlipChallenge.Features.GitHubRepository.GetRepositories.RepositoryViewModel.Name">
@@ -164,6 +227,36 @@
             <summary>
             Data de criação do repositório
             </summary>
+        </member>
+        <member name="M:BlipChallenge.Features.GitHubRepository.GetRepositories.RepositoryViewModel.#ctor(System.String,System.String,System.String,System.String,System.DateTime)">
+            <summary>
+            Construtor padrão com todos os parâmetros
+            </summary>
+            <param name="name"></param>
+            <param name="htmlUrl"></param>
+            <param name="language"></param>
+            <param name="description"></param>
+            <param name="createdAt"></param>
+        </member>
+        <member name="M:BlipChallenge.Features.GitHubRepository.GetRepositories.RepositoryViewModel.#ctor(BlipChallenge.Common.Services.GithubApi.GitHubRepositoryViewModel)">
+            <summary>
+            Construtor com parâmetro de ViewModel do GitHub
+            </summary>
+            <param name="gitHubRepositoryViewModel"></param>
+        </member>
+        <member name="T:BlipChallenge.Features.GitHubRepository.GitHubRepositoryController">
+            <summary>
+            Controladora para rotas relacionadas a repositórios do GitHub
+            </summary>
+        </member>
+        <member name="M:BlipChallenge.Features.GitHubRepository.GitHubRepositoryController.GetRepositories(BlipChallenge.Features.GitHubRepository.GetRepositories.GetRepositoryQuery,BlipChallenge.Common.Interfaces.IHandler{System.Collections.Generic.List{BlipChallenge.Features.GitHubRepository.GetRepositories.RepositoryViewModel},BlipChallenge.Features.GitHubRepository.GetRepositories.GetRepositoryQuery},System.Threading.CancellationToken)">
+            <summary>
+            Retorna os repositórios mais antigos de acordo com a linguagem de programação
+            </summary>
+            <param name="query"></param>
+            <param name="handler"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
         </member>
         <member name="T:BlipChallenge.Middleware.ExceptionMiddleware">
             <summary>
