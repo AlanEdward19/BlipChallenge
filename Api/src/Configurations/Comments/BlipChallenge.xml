@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BlipChallenge</name>
+    </assembly>
+    <members>
+        <member name="T:BlipChallenge.Common.CommonModule">
+            <summary>
+               Módulo para configuração de dependências comuns.
+            </summary>
+        </member>
+        <member name="M:BlipChallenge.Common.CommonModule.ConfigureCommonRelatedDependencies(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Método para resolver as dependências comuns.
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BlipChallenge.Common.Interfaces.IHandler`2">
+            <summary>
+                Interface para padronizar handlers.
+            </summary>
+            <typeparam name="TResponse"></typeparam>
+            <typeparam name="TItem"></typeparam>
+        </member>
+        <member name="M:BlipChallenge.Common.Interfaces.IHandler`2.HandleAsync(`1,System.Threading.CancellationToken)">
+            <summary>
+                Método para lidar com operações.
+            </summary>
+            <param name="item"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BlipChallenge.Common.Services.GithubApi.GitHubRepositoryViewModel">
+            <summary>
+            ViewModel para representar um repositório do GitHub
+            </summary>
+            <param name="name"></param>
+            <param name="htmlUrl"></param>
+            <param name="language"></param>
+            <param name="description"></param>
+            <param name="createdAt"></param>
+        </member>
+        <member name="M:BlipChallenge.Common.Services.GithubApi.GitHubRepositoryViewModel.#ctor(System.String,System.String,System.String,System.String,System.DateTime)">
+            <summary>
+            ViewModel para representar um repositório do GitHub
+            </summary>
+            <param name="name"></param>
+            <param name="htmlUrl"></param>
+            <param name="language"></param>
+            <param name="description"></param>
+            <param name="createdAt"></param>
+        </member>
+        <member name="P:BlipChallenge.Common.Services.GithubApi.GitHubRepositoryViewModel.Name">
+            <summary>
+            Nome do repositório
+            </summary>
+        </member>
+        <member name="P:BlipChallenge.Common.Services.GithubApi.GitHubRepositoryViewModel.HtmlUrl">
+            <summary>
+            Url do repositório
+            </summary>
+        </member>
+        <member name="P:BlipChallenge.Common.Services.GithubApi.GitHubRepositoryViewModel.Language">
+            <summary>
+            Linguagem de programação do repositório
+            </summary>
+        </member>
+        <member name="P:BlipChallenge.Common.Services.GithubApi.GitHubRepositoryViewModel.Description">
+            <summary>
+            Descrição do repositório
+            </summary>
+        </member>
+        <member name="P:BlipChallenge.Common.Services.GithubApi.GitHubRepositoryViewModel.CreatedAt">
+            <summary>
+            Data de criação do repositório
+            </summary>
+        </member>
+        <member name="T:BlipChallenge.Configurations.EndpointsConfiguration">
+            <summary>
+                Configuração dos Endpoints
+            </summary>
+        </member>
+        <member name="M:BlipChallenge.Configurations.EndpointsConfiguration.MapEndpoints(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+                Mapeia os endpoint.
+            </summary>
+            <param name="app">The app.</param>
+            <param name="configuration">The configuration.</param>
+            <returns>An IEndpointRouteBuilder.</returns>
+        </member>
+        <member name="M:BlipChallenge.Configurations.EndpointsConfiguration.ConfigureEndpoints(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                Configura os endpoints.
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BlipChallenge.Configurations.MiddlewareConfiguration">
+            <summary>
+                Classe para configuração de middlewares
+            </summary>
+        </member>
+        <member name="M:BlipChallenge.Configurations.MiddlewareConfiguration.ConfigureMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+                Método para configurar os middlewares
+            </summary>
+            <param name="app"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BlipChallenge.Configurations.SwaggerConfiguration.ConfigureSwagger(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+                Método para configurar o Swagger
+            </summary>
+            <param name="app"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BlipChallenge.Features.GitHubRepository.GetRepositories.GetRepositoryQuery">
+            <summary>
+            Classe que representa a query para buscar repositórios no GitHub
+            </summary>
+        </member>
+        <member name="P:BlipChallenge.Features.GitHubRepository.GetRepositories.GetRepositoryQuery.UserName">
+            <summary>
+            Nome do usuário do GitHub
+            </summary>
+        </member>
+        <member name="P:BlipChallenge.Features.GitHubRepository.GetRepositories.GetRepositoryQuery.ProgrammingLanguage">
+            <summary>
+            Nome da linguagem de programação que deseja buscar
+            </summary>
+        </member>
+        <member name="P:BlipChallenge.Features.GitHubRepository.GetRepositories.GetRepositoryQuery.Rows">
+            <summary>
+            Quantidade de repositórios que deseja retornar na busca
+            </summary>
+        </member>
+        <member name="P:BlipChallenge.Features.GitHubRepository.GetRepositories.GetRepositoryQuery.Type">
+            <summary>
+            Tipo de repositório que deseja buscar, 0 = Usuário, 1 = Organização
+            </summary>
+        </member>
+        <member name="P:BlipChallenge.Features.GitHubRepository.GetRepositories.RepositoryViewModel.Name">
+            <summary>
+            Nome do repositório
+            </summary>
+        </member>
+        <member name="P:BlipChallenge.Features.GitHubRepository.GetRepositories.RepositoryViewModel.HtmlUrl">
+            <summary>
+            Url do repositório
+            </summary>
+        </member>
+        <member name="P:BlipChallenge.Features.GitHubRepository.GetRepositories.RepositoryViewModel.Language">
+            <summary>
+            Linguagem de programação do repositório
+            </summary>
+        </member>
+        <member name="P:BlipChallenge.Features.GitHubRepository.GetRepositories.RepositoryViewModel.Description">
+            <summary>
+            Descrição do repositório
+            </summary>
+        </member>
+        <member name="P:BlipChallenge.Features.GitHubRepository.GetRepositories.RepositoryViewModel.CreatedAt">
+            <summary>
+            Data de criação do repositório
+            </summary>
+        </member>
+        <member name="T:BlipChallenge.Middleware.ExceptionMiddleware">
+            <summary>
+                Middleware para tratamento de exceções
+            </summary>
+            <param name="next"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:BlipChallenge.Middleware.ExceptionMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Logging.ILogger{BlipChallenge.Middleware.ExceptionMiddleware})">
+            <summary>
+                Middleware para tratamento de exceções
+            </summary>
+            <param name="next"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:BlipChallenge.Middleware.ExceptionMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+                Método para invocar o middleware
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:Refit.Implementation.Generated">
+            <inheritdoc />
+        </member>
+        <member name="T:Refit.Implementation.Generated.BlipChallengeCommonServicesGithubApiIGitHubApi">
+            <inheritdoc />
+        </member>
+        <member name="P:Refit.Implementation.Generated.BlipChallengeCommonServicesGithubApiIGitHubApi.Client">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.BlipChallengeCommonServicesGithubApiIGitHubApi.#ctor(System.Net.Http.HttpClient,Refit.IRequestBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.BlipChallengeCommonServicesGithubApiIGitHubApi.GetUserRepositoriesAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.BlipChallengeCommonServicesGithubApiIGitHubApi.GetOrgRepositoriesAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.BlipChallengeCommonServicesGithubApiIGitHubApi.BlipChallenge#Common#Services#GithubApi#IGitHubApi#GetUserRepositoriesAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.BlipChallengeCommonServicesGithubApiIGitHubApi.BlipChallenge#Common#Services#GithubApi#IGitHubApi#GetOrgRepositoriesAsync(System.String)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
