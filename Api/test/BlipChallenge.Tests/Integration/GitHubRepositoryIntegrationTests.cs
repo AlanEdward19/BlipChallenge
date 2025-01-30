@@ -1,6 +1,7 @@
 ﻿using BlipChallenge.Common.Services.GithubApi;
 using BlipChallenge.Features.GitHubRepository.GetRepositories;
 using BlipChallenge.Features.GitHubRepository.GetRepositories.Enums;
+using Microsoft.Extensions.Logging;
 using Moq;
 
 namespace BlipChallenge.Tests.Integration;
@@ -35,7 +36,8 @@ public class GitHubRepositoryIntegrationTests
         mockGitHubApi.Setup(api => api.GetOrgRepositoriesAsync("organization"))
             .ReturnsAsync(repositories);
 
-        _repositoryQueryHandler = new GetRepositoryQueryHandler(mockGitHubApi.Object);
+        var mockLogger = new Mock<ILogger<GetRepositoryQueryHandler>>();
+        _repositoryQueryHandler = new GetRepositoryQueryHandler(mockGitHubApi.Object, mockLogger.Object);
     }
 
     [Theory]

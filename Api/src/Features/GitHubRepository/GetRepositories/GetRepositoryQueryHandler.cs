@@ -8,7 +8,8 @@ namespace BlipChallenge.Features.GitHubRepository.GetRepositories;
 /// Handler para query de busca de repositórios
 /// </summary>
 /// <param name="gitHubApi"></param>
-public class GetRepositoryQueryHandler(IGitHubApi gitHubApi) : IHandler<List<RepositoryViewModel>, GetRepositoryQuery>
+public class GetRepositoryQueryHandler(IGitHubApi gitHubApi, ILogger<GetRepositoryQueryHandler> logger)
+    : IHandler<List<RepositoryViewModel>, GetRepositoryQuery>
 {
     /// <summary>
     /// Método que executa a query de busca de repositórios
@@ -17,8 +18,12 @@ public class GetRepositoryQueryHandler(IGitHubApi gitHubApi) : IHandler<List<Rep
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
-    public async Task<List<RepositoryViewModel>> HandleAsync(GetRepositoryQuery query, CancellationToken cancellationToken)
+    public async Task<List<RepositoryViewModel>> HandleAsync(GetRepositoryQuery query,
+        CancellationToken cancellationToken)
     {
+        logger.LogInformation("Recebendo requisição para buscar repositórios de {0} com tipo {1}", query.UserName,
+            query.Type);
+
         var repositories = query.Type switch
         {
             ERepositoryType.User => await gitHubApi.GetUserRepositoriesAsync(query.UserName),
@@ -26,7 +31,8 @@ public class GetRepositoryQueryHandler(IGitHubApi gitHubApi) : IHandler<List<Rep
             _ => throw new ArgumentOutOfRangeException()
         };
 
-        return repositories.Where(x => x.Language?.Equals(query.ProgrammingLanguage, StringComparison.OrdinalIgnoreCase) ?? false)
+        return repositories.Where(x =>
+                x.Language?.Equals(query.ProgrammingLanguage, StringComparison.OrdinalIgnoreCase) ?? false)
             .OrderBy(x => x.CreatedAt)
             .Take(query.Rows)
             .Select(x => new RepositoryViewModel(x))

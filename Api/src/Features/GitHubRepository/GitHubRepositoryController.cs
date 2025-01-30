@@ -10,7 +10,7 @@ namespace BlipChallenge.Features.GitHubRepository;
 /// </summary>
 [ApiController]
 [Route("[Controller]")]
-public class GitHubRepositoryController : ControllerBase
+public class GitHubRepositoryController(ILogger<GitHubRepositoryController> logger) : ControllerBase
 {
     /// <summary>
     /// Retorna os repositórios mais antigos de acordo com a linguagem de programação
@@ -26,6 +26,8 @@ public class GitHubRepositoryController : ControllerBase
     {
         List<RepositoryViewModel> response = await handler.HandleAsync(query, cancellationToken);
 
+        logger.LogInformation("Repositórios encontrados: {0}", response.Count);
+        logger.LogInformation("Formatar para carrossel: {0}", shouldFormatToCarrousel);
         if (shouldFormatToCarrousel)
         {
             CarrouselItemBuilder carrouselBuilder = new();
