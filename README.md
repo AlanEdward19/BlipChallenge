@@ -1,9 +1,9 @@
-# **BlipChallennge 🚀**  
+# **BlipChallenge 🚀**  
 
 > Desafio técnico que combina uma API RESTful em **ASP.NET Core** e um fluxo conversacional no **Blip**.  
 
 ## 📌 Visão Geral  
-O **BlipChallennge** é um projeto dividido em duas partes principais:  
+O **BlipChallenge** é um projeto dividido em duas partes principais:  
 
 1️⃣ **API**: Desenvolvida em **ASP.NET Core com .NET 9**, esta API consome a API do GitHub para buscar repositórios com base no usuário, linguagem e quantidade especificada.  
 2️⃣ **Flow**: Um fluxo conversacional construído na plataforma **Blip**, permitindo interações automatizadas via chatbot.  
@@ -30,7 +30,7 @@ O **BlipChallennge** é um projeto dividido em duas partes principais:
 
 ### 1️⃣ Clone o Repositório  
 ```bash
-git clone https://github.com/AlanEdward19/BlipChallennge.git
+git clone https://github.com/AlanEdward19/BlipChallenge.git
 cd BlipChallennge
 ```
 
@@ -81,7 +81,7 @@ GET /GitHubRepository/GetOldestRepositoriesByProgrammingLanguage?UserName=takene
 
 ## 📝 Estrutura do Projeto
 ```css
-  BlipChallennge/
+  BlipChallenge/
 │── Api/
 │   ├── src/
 │   │   ├── Common/
@@ -117,7 +117,7 @@ GET /GitHubRepository/GetOldestRepositoriesByProgrammingLanguage?UserName=takene
 │   │   │   ├── Integration/
 │   │   │   │   └── GitHubRepositoryIntegrationTests.cs
 │── Flow/
-│   └── chatbot.json
+│   └── desafioblip24.json
 ```
 
 ## 📄 Licença
