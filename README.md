@@ -30,7 +30,7 @@ O **BlipChallenge** é um projeto dividido em duas partes principais:
 
 ### 1️⃣ Clone o Repositório  
 ```bash
-git clone https://github.com/AlanEdward19/BlipChallennge.git
+git clone https://github.com/AlanEdward19/BlipChallenge.git
 cd BlipChallennge
 ```
 
