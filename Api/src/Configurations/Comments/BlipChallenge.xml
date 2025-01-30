@@ -127,6 +127,24 @@
             <param name="services"></param>
             <returns></returns>
         </member>
+        <member name="T:BlipChallenge.Features.GitHubRepository.GetRepositories.Builders.CarrouselItemBuilder">
+            <summary>
+            Classe para construção de itens do carrossel
+            </summary>
+        </member>
+        <member name="M:BlipChallenge.Features.GitHubRepository.GetRepositories.Builders.CarrouselItemBuilder.AddItem(BlipChallenge.Features.GitHubRepository.GetRepositories.RepositoryViewModel)">
+            <summary>
+            Método para adicionar um item ao carrossel
+            </summary>
+            <param name="repository"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BlipChallenge.Features.GitHubRepository.GetRepositories.Builders.CarrouselItemBuilder.Build">
+            <summary>
+            Método para construir o carrossel
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:BlipChallenge.Features.GitHubRepository.GetRepositories.Enums.ERepositoryType">
             <summary>
             Enum que representa o tipo de repositório que deseja buscar
@@ -249,7 +267,7 @@
             Controladora para rotas relacionadas a repositórios do GitHub
             </summary>
         </member>
-        <member name="M:BlipChallenge.Features.GitHubRepository.GitHubRepositoryController.GetRepositories(BlipChallenge.Features.GitHubRepository.GetRepositories.GetRepositoryQuery,BlipChallenge.Common.Interfaces.IHandler{System.Collections.Generic.List{BlipChallenge.Features.GitHubRepository.GetRepositories.RepositoryViewModel},BlipChallenge.Features.GitHubRepository.GetRepositories.GetRepositoryQuery},System.Threading.CancellationToken)">
+        <member name="M:BlipChallenge.Features.GitHubRepository.GitHubRepositoryController.GetRepositories(BlipChallenge.Features.GitHubRepository.GetRepositories.GetRepositoryQuery,BlipChallenge.Common.Interfaces.IHandler{System.Collections.Generic.List{BlipChallenge.Features.GitHubRepository.GetRepositories.RepositoryViewModel},BlipChallenge.Features.GitHubRepository.GetRepositories.GetRepositoryQuery},System.Threading.CancellationToken,System.Boolean)">
             <summary>
             Retorna os repositórios mais antigos de acordo com a linguagem de programação
             </summary>
