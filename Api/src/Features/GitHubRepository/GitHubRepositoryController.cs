@@ -1,5 +1,6 @@
 ﻿using BlipChallenge.Common.Interfaces;
 using BlipChallenge.Features.GitHubRepository.GetRepositories;
+using BlipChallenge.Features.GitHubRepository.GetRepositories.Builders;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlipChallenge.Features.GitHubRepository;
@@ -21,8 +22,20 @@ public class GitHubRepositoryController : ControllerBase
     [HttpGet("GetOldestRepositoriesByProgrammingLanguage")]
     public async Task<IActionResult> GetRepositories([FromQuery] GetRepositoryQuery query,
         [FromServices] IHandler<List<RepositoryViewModel>, GetRepositoryQuery> handler,
-        CancellationToken cancellationToken)
+        CancellationToken cancellationToken, [FromQuery] bool shouldFormatToCarrousel = false)
     {
-        return Ok(await handler.HandleAsync(query, cancellationToken));
+        List<RepositoryViewModel> response = await handler.HandleAsync(query, cancellationToken);
+
+        if (shouldFormatToCarrousel)
+        {
+            CarrouselItemBuilder carrouselBuilder = new();
+            
+            foreach (var repo in response)
+                carrouselBuilder.AddItem(repo);
+            
+            return Ok(carrouselBuilder.Build());
+        }
+
+        return Ok(response);
     }
 }
